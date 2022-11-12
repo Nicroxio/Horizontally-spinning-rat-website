@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INFINITE ADJUSTABLE RAT</title>
+        <style>
+            body{
+                background-image: url(rat.gif);
+                background-size: var(--ratsize, 350px);
+            }
+
+            div{
+                background: rgba(255, 255, 255, 0.9);
+                text-align: center;
+                color: black;
+                font-family: sans-serif;
+
+                padding: 12px;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                margin: 1%;
+                width: 25%;
+            }
+
+            input{
+                width: 100%;
+            }
+        </style>    
+
+        <script type="application/javascript">
+            let doc = document.documentElement;
+
+            function formSubmit() {
+                doc.style.setProperty('--ratsize', document.sizeForm.sizeRange.value + "px")
+            }
+        </script>
+        
+    </head>
+
+    <body>
+        <div>
+            <h2>Set the size of the rat</h1>
+            <form name="sizeForm" id="sizeform" onChange="formSubmit()" method="post">
+                <input type="range" min="1" max="750" value="350" class="slider" id="sizeRange" oninput="tb.value = this.value + 'px';">
+                <output name="showRange" id="tb">350px</output>
+            </form>
+        </div>
+    </body>
+</html>
